@@ -1,0 +1,1 @@
+cmake -B build -DCMAKE_PREFIX_PATH=C:/Users/rayen/Documents/Projects/ABI/libcellml-install
