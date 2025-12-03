@@ -43,9 +43,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="2.2775"
-     inkscape:cx="282.76619"
-     inkscape:cy="111.30626"
+     inkscape:zoom="3.2208714"
+     inkscape:cx="607.91002"
+     inkscape:cy="154.30607"
      inkscape:window-width="2560"
      inkscape:window-height="1476"
      inkscape:window-x="-12"
@@ -321,7 +321,7 @@
      style="font-size:13.2925px;font-family:Arial;text-anchor:end;white-space:pre;inline-size:0;fill:#ff0000;fill-opacity:1;stroke-width:1.54945"
      dominant-baseline="middle"
      id="text2"
-     transform="matrix(0.64539156,0,0,0.64539156,247.92823,15.468285)">y</text>
+     transform="matrix(0.64539156,0,0,0.64539156,247.92823,15.468285)">z</text>
   <text
      x="551.60339"
      y="42.864048"
@@ -332,5 +332,5 @@
      xml:space="preserve"><tspan
        x="551.60339"
        y="42.864048"
-       id="tspan1">z</tspan></text>
+       id="tspan2">y</tspan></text>
 </svg>
