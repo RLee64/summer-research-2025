@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
 
     std::cout << errorCount << std::endl;
 
-    for (int i = 0; errorCount; i++) {
+    for (int i = 0; i<errorCount; i++) {
         libcellml::IssuePtr issue = parser->issue(i);
         if (issue == nullptr) {
             std::cout << "null pointer issue?" << std::endl;
