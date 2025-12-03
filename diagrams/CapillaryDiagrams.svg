@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Circuit Diagram, cdlibrary.dll 4.0.0.0 -->
+
+<svg
+   version="1.1"
+   width="800"
+   height="220"
+   id="svg18"
+   sodipodi:docname="CapillaryDiagrams.svg"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs18">
+    <marker
+       style="overflow:visible"
+       id="marker20"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="0.75"
+       markerHeight="0.75"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path20" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="namedview18"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="2.2775"
+     inkscape:cx="282.76619"
+     inkscape:cy="111.30626"
+     inkscape:window-width="2560"
+     inkscape:window-height="1476"
+     inkscape:window-x="-12"
+     inkscape:window-y="-12"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg18" />
+  <line
+     x1="170"
+     y1="164"
+     x2="170"
+     y2="194"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line1"
+     inkscape:export-filename="CircuitDiagram.png"
+     inkscape:export-xdpi="300"
+     inkscape:export-ydpi="300" />
+  <line
+     x1="170"
+     y1="114"
+     x2="170"
+     y2="135"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line2" />
+  <line
+     x1="170"
+     y1="143"
+     x2="170"
+     y2="164"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line3" />
+  <line
+     x1="156"
+     y1="135"
+     x2="184"
+     y2="135"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line4" />
+  <line
+     x1="156"
+     y1="143"
+     x2="184"
+     y2="143"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line5" />
+  <text
+     x="150"
+     y="139"
+     style="font-size:11px;font-family:Arial;text-anchor:end"
+     dominant-baseline="middle"
+     id="text5">C</text>
+  <line
+     x1="170"
+     y1="84"
+     x2="170"
+     y2="114"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line6" />
+  <line
+     x1="110"
+     y1="164"
+     x2="110"
+     y2="194"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line7" />
+  <line
+     x1="110"
+     y1="114"
+     x2="110"
+     y2="119"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line8" />
+  <line
+     x1="110"
+     y1="159"
+     x2="110"
+     y2="164"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line9" />
+  <path
+     d="m 110,119 v 2 l -7,3 14,6 -14,6 14,6 -14,6 14,6 -7,3 v 2"
+     style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="path9" />
+  <text
+     x="94"
+     y="139"
+     style="font-size:11px;font-family:Arial;text-anchor:end"
+     dominant-baseline="middle"
+     id="text9">R<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan27">v</tspan></text>
+  <line
+     x1="110"
+     y1="84"
+     x2="110"
+     y2="114"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line10" />
+  <line
+     x1="110"
+     y1="84"
+     x2="170"
+     y2="84"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line11" />
+  <line
+     x1="140"
+     y1="54"
+     x2="140"
+     y2="84"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line12" />
+  <line
+     x1="290"
+     y1="54"
+     x2="340"
+     y2="54"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line13" />
+  <line
+     x1="240"
+     y1="54"
+     x2="245"
+     y2="54"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line14" />
+  <line
+     x1="285"
+     y1="54"
+     x2="290"
+     y2="54"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line15" />
+  <path
+     d="m 245,54 h 2 l 3,-7 6,14 6,-14 6,14 6,-14 6,14 3,-7 h 2"
+     style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="path15" />
+  <text
+     x="265"
+     y="40"
+     style="font-size:11px;font-family:Arial;text-anchor:middle"
+     dominant-baseline="baseline"
+     id="text15">R</text>
+  <line
+     x1="90"
+     y1="54"
+     x2="240"
+     y2="54"
+     style="stroke:#000000;stroke-width:2;stroke-linecap:square"
+     id="line16" />
+  <circle
+     cx="140"
+     cy="84"
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2"
+     id="ellipse17"
+     r="2" />
+  <circle
+     cx="140"
+     cy="54"
+     style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2"
+     id="ellipse18"
+     r="2" />
+  <text
+     x="82.583977"
+     y="54.084961"
+     style="font-family:Arial;baseline-shift:baseline;text-anchor:end"
+     dominant-baseline="middle"
+     id="text18">v<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan3">in</tspan></text>
+  <text
+     x="367.36664"
+     y="55.020508"
+     style="font-size:11px;font-family:Arial;text-anchor:end"
+     dominant-baseline="middle"
+     id="text19">P<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan25">out</tspan></text>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker20)"
+     d="m 505.14163,53.519602 h 35.48741"
+     id="path19"
+     inkscape:export-filename="BondGraph.png"
+     inkscape:export-xdpi="300"
+     inkscape:export-ydpi="300" />
+  <text
+     x="558.59644"
+     y="179.83214"
+     style="font-size:13.2925px;font-family:Arial;text-anchor:end;stroke-width:1"
+     dominant-baseline="middle"
+     id="text27">C</text>
+  <text
+     x="499.46976"
+     y="114.6202"
+     style="font-size:13.2925px;font-family:Arial;text-anchor:end;stroke-width:1"
+     dominant-baseline="middle"
+     id="text28">R<tspan
+   style="font-size:8.64015px;baseline-shift:sub;stroke-width:1"
+   id="tspan28">v</tspan></text>
+  <text
+     x="609.02661"
+     y="118.44039"
+     style="font-size:13.2925px;font-family:Arial;text-anchor:middle;stroke-width:1"
+     dominant-baseline="baseline"
+     id="text29">R</text>
+  <text
+     x="501.04547"
+     y="52.199585"
+     style="font-size:13.2925px;font-family:Arial;text-anchor:end;stroke-width:1"
+     dominant-baseline="middle"
+     id="text30">v<tspan
+   style="font-size:8.64015px;baseline-shift:sub;stroke-width:1"
+   id="tspan29">in</tspan></text>
+  <text
+     x="675.4964"
+     y="54.14896"
+     style="font-size:13.2925px;font-family:Arial;text-anchor:end;stroke-width:1"
+     dominant-baseline="middle"
+     id="text31">P<tspan
+   style="font-size:8.64015px;baseline-shift:sub;stroke-width:1"
+   id="tspan30">out</tspan></text>
+  <text
+     x="557.60339"
+     y="54.864048"
+     style="font-size:13.2925px;font-family:Arial;text-anchor:end;stroke-width:1"
+     dominant-baseline="middle"
+     id="text32">0</text>
+  <text
+     x="557.02081"
+     y="115.01342"
+     style="font-size:13.2925px;font-family:Arial;text-anchor:end;stroke-width:1"
+     dominant-baseline="middle"
+     id="text33">1</text>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker20)"
+     d="m 561.91446,53.614627 h 35.48741"
+     id="path33" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker20)"
+     d="M 553.86485,65.518524 V 101.00593"
+     id="path34" />
+  <text
+     x="610.83685"
+     y="54.945179"
+     style="font-size:13.2925px;font-family:Arial;text-anchor:end;stroke-width:1"
+     dominant-baseline="middle"
+     id="text34">1</text>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker20)"
+     d="m 612.66777,53.614627 h 35.48741"
+     id="path35" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker20)"
+     d="M 544.47821,114.03524 H 508.9908"
+     id="path36" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker20)"
+     d="M 608.39645,65.518524 V 101.00593"
+     id="path37" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker20)"
+     d="m 553.86485,128.35597 v 35.4874"
+     id="path38" />
+  <text
+     x="551.60339"
+     y="42.864048"
+     style="font-size:13.2925px;font-family:Arial;text-anchor:end;white-space:pre;inline-size:0;fill:#ff0000;fill-opacity:1;stroke-width:1.54945"
+     dominant-baseline="middle"
+     id="text1"
+     transform="matrix(0.64539156,0,0,0.64539156,193.92823,15.468285)">x</text>
+  <text
+     x="551.60339"
+     y="42.864048"
+     style="font-size:13.2925px;font-family:Arial;text-anchor:end;white-space:pre;inline-size:0;fill:#ff0000;fill-opacity:1;stroke-width:1.54945"
+     dominant-baseline="middle"
+     id="text2"
+     transform="matrix(0.64539156,0,0,0.64539156,247.92823,15.468285)">y</text>
+  <text
+     x="551.60339"
+     y="42.864048"
+     style="font-size:13.2925px;font-family:Arial;text-anchor:end;white-space:pre;inline-size:8.50332;display:inline;fill:#ff0000;fill-opacity:1;stroke-width:1.54945"
+     dominant-baseline="middle"
+     id="text3"
+     transform="matrix(0.64539156,0,0,0.64539156,191.92823,77.468285)"
+     xml:space="preserve"><tspan
+       x="551.60339"
+       y="42.864048"
+       id="tspan1">z</tspan></text>
+</svg>
