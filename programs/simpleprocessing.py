@@ -1,4 +1,4 @@
-from libcellml import Parser, Analyser, AnalyserModel, Printer
+from libcellml import Parser, Analyser, AnalyserModel, Printer, Validator
 from pathlib import Path
 
 cwd = Path.cwd()
@@ -9,10 +9,9 @@ output_file_path = cwd.parent / "output/"
 output_file_name = "output.cellml"
 
 def log_issues(libcellobj):
-    if libcellobj.issueCount() > 0:
-        print(f'Errors picked up from {libcellobj.__class__}')
-        for i in range(0, libcellobj.issueCount()):
-            print(libcellobj.issue(i).description())
+    print(f'{libcellobj.issueCount()} issue/s found for {libcellobj.__class__}')
+    for i in range(0, libcellobj.issueCount()):
+        print(libcellobj.issue(i).description())
 
 def main():
     print("Opening CellML file...")
@@ -24,7 +23,12 @@ def main():
     model = parser.parseModel(content)
     log_issues(parser)
 
-    print("Analysing CellML file...")
+    print("Validating model...")
+    validator = Validator()
+    validator.validateModel(model)
+    log_issues(validator)
+
+    print("Analysing model...")
     analyser = Analyser()
     analyser.analyseModel(model)
     analysed_model = analyser.model()

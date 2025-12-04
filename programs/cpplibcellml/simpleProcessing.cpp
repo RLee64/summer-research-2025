@@ -12,13 +12,15 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+#include <typeinfo>
 
 #include <libcellml>
 
-void logIssues(std::shared_ptr<libcellml::Logger> logger) {
+void logIssues(std::shared_ptr<libcellml::Logger> logger)
+{
     int errorCount = logger->errorCount();
 
-    std::cout << errorCount << "issue/s detected" << std::endl;
+    std::cout << errorCount << " issue/s found" << std::endl;
 
     for (int i = 0; i < errorCount; i++)
     {
@@ -60,7 +62,12 @@ int main()
         return 1;
     }
 
-    std::cout << "Analysing CellML file..." << std::endl;
+    std::cout << "Validating model..." << std::endl;
+    libcellml::ValidatorPtr validator = libcellml::Validator::create();
+    validator->validateModel(model);
+    logIssues(validator);
+
+    std::cout << "Analysing model..." << std::endl;
     libcellml::AnalyserPtr analyser = libcellml::Analyser::create();
     analyser->analyseModel(model);
     libcellml::AnalyserModelPtr analysedModel = analyser->analyserModel();
