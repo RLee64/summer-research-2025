@@ -458,18 +458,19 @@
                     <ci>u_ext_input_vessel</ci>
                 </apply>
             </apply>
+            <!-- Original DAE Equations
+ u_input_vessel             = u_C_input_vessel+2{dimensionless}*R_v_input_vessel*(v_in_input_vessel-v_input_vessel);
+ u_d_input_vessel           = u_C_d_input_vessel+2{dimensionless}*R_v_input_vessel*(v_input_vessel-v_out_1_input_vessel-v_out_2_input_vessel);-->
+            <!-- DAE -> ODE Transformation (for one equation)
+ u_d_input_vessel           = u_C_d_input_vessel+2{dimensionless}*R_v_input_vessel*(v_input_vessel-v_out_1_input_vessel-v_out_2_input_vessel);-->
+            <!-- DAE
+ u_d_input_vessel           = u_C_d_input_vessel+2{dimensionless}*R_v_input_vessel*(v_input_vessel-(u_d_input_vessel-u_pericyte_0)/R_pericyte_0-(u_d_input_vessel-u_pericyte_1)/R_pericyte_1);-->
+            <!-- ODE-->
             <apply>
                 <eq/>
                 <ci>u_input_vessel</ci>
                 <ci>u_C_input_vessel</ci>
             </apply>
-            <!--+2{dimensionless}*R_v_input_vessel*(v_in_input_vessel-v_input_vessel);-->
-            <!-- DAE/ODE RECOGNITION FUNCTIONS-->
-            <!-- DAE
-        u_d_input_vessel           = u_C_d_input_vessel+2{dimensionless}*R_v_input_vessel*(v_input_vessel-v_out_1_input_vessel-v_out_2_input_vessel);-->
-            <!-- DAE
-        u_d_input_vessel           = u_C_d_input_vessel+2{dimensionless}*R_v_input_vessel*(v_input_vessel-(u_d_input_vessel-u_pericyte_0)/R_pericyte_0-(u_d_input_vessel-u_pericyte_1)/R_pericyte_1);-->
-            <!-- ODE-->
             <apply>
                 <eq/>
                 <ci>u_d_input_vessel</ci>
@@ -497,18 +498,30 @@
                         <plus/>
                         <cn cellml:units="dimensionless">1</cn>
                         <apply>
-                            <times/>
-                            <cn cellml:units="dimensionless">2</cn>
-                            <ci>R_v_input_vessel</ci>
+                            <divide/>
                             <apply>
-                                <divide/>
+                                <times/>
+                                <cn cellml:units="dimensionless">2</cn>
+                                <ci>R_v_input_vessel</ci>
                                 <cn cellml:units="dimensionless">1</cn>
-                                <ci>R_pericyte_0</ci>
                             </apply>
+                            <ci>R_pericyte_0</ci>
                         </apply>
                     </apply>
                 </apply>
             </apply>
+        </math>
+        <!-- PV CONSTRICTION TYPE (PERICYTE) //////////////////////////////////-->
+        <!-- Percicyte 0-->
+        <variable initial_value="1.0" name="C_pericyte_0" units="m6_per_J"/>
+        <variable initial_value="1.0" name="R_pericyte_0" units="Js_per_m6"/>
+        <variable initial_value="0.0" name="u_ext_pericyte_0" units="J_per_m3"/>
+        <variable initial_value="0.0" name="q_C_pericyte_0" units="m3"/>
+        <!-- u_in_pericyte_0 is u_d_input_vessel
+ v_pericyte_0 is v_out_1_input_vessel-->
+        <variable initial_value="0.0" name="v_out_pericyte_0" units="m3_per_s"/>
+        <variable name="u_pericyte_0" units="J_per_m3"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
                 <ci>v_out_1_input_vessel</ci>
@@ -522,18 +535,6 @@
                     <ci>R_pericyte_0</ci>
                 </apply>
             </apply>
-        </math>
-        <!-- PV CONSTRICTION TYPE (PERICYTE) //////////////////////////////////-->
-        <!-- Percicyte 0-->
-        <variable initial_value="0.0" name="u_ext_pericyte_0" units="J_per_m3"/>
-        <variable initial_value="1.0" name="C_pericyte_0" units="m6_per_J"/>
-        <variable initial_value="1.0" name="R_pericyte_0" units="Js_per_m6"/>
-        <variable initial_value="0.0" name="q_C_pericyte_0" units="m3"/>
-        <!-- u_in_pericyte_0 is u_d_input_vessel
- v_pericyte_0 is v_out_1_input_vessel-->
-        <variable initial_value="0.0" name="v_out_pericyte_0" units="m3_per_s"/>
-        <variable name="u_pericyte_0" units="J_per_m3"/>
-        <math xmlns="http://www.w3.org/1998/Math/MathML">
             <apply>
                 <eq/>
                 <apply>
@@ -566,11 +567,26 @@
         <!-- Percicyte 1-->
         <variable initial_value="0.0" name="u_ext_pericyte_1" units="J_per_m3"/>
         <variable initial_value="1.0" name="C_pericyte_1" units="m6_per_J"/>
+        <variable initial_value="1.0" name="R_pericyte_1" units="Js_per_m6"/>
         <variable initial_value="0.0" name="q_C_pericyte_1" units="m3"/>
         <!-- u_in_pericyte_1 is u_d_input_vessel
  v_pericyte_1 is v_out_2_input_vessel-->
         <variable initial_value="0.0" name="v_out_pericyte_1" units="m3_per_s"/>
+        <variable name="u_pericyte_1" units="J_per_m3"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>v_out_2_input_vessel</ci>
+                <apply>
+                    <divide/>
+                    <apply>
+                        <minus/>
+                        <ci>u_d_input_vessel</ci>
+                        <ci>u_pericyte_1</ci>
+                    </apply>
+                    <ci>R_pericyte_1</ci>
+                </apply>
+            </apply>
             <apply>
                 <eq/>
                 <apply>
@@ -584,6 +600,19 @@
                     <minus/>
                     <ci>v_out_2_input_vessel</ci>
                     <ci>v_out_pericyte_1</ci>
+                </apply>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>u_pericyte_1</ci>
+                <apply>
+                    <plus/>
+                    <apply>
+                        <divide/>
+                        <ci>q_C_pericyte_1</ci>
+                        <ci>C_pericyte_1</ci>
+                    </apply>
+                    <ci>u_ext_pericyte_1</ci>
                 </apply>
             </apply>
         </math>
@@ -894,6 +923,33 @@
                 </apply>
             </apply>
             <!-- Conservation Laws-->
+            <apply>
+                <eq/>
+                <apply>
+                    <diff/>
+                    <bvar>
+                        <ci>t</ci>
+                    </bvar>
+                    <ci>v_out_pericyte_1</ci>
+                </apply>
+                <apply>
+                    <divide/>
+                    <apply>
+                        <minus/>
+                        <apply>
+                            <minus/>
+                            <ci>u_pericyte_1</ci>
+                            <ci>u_capillary_1</ci>
+                        </apply>
+                        <apply>
+                            <times/>
+                            <ci>R_capillary_1</ci>
+                            <ci>v_out_pericyte_1</ci>
+                        </apply>
+                    </apply>
+                    <ci>I_capillary_1</ci>
+                </apply>
+            </apply>
             <!-- the below allows non constant compliance-->
             <apply>
                 <eq/>

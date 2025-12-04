@@ -456,19 +456,21 @@
                     <ci>u_ext</ci>
                 </apply>
             </apply>
+            <!-- DAE
+u             = u_C+2{dimensionless}*R_v*(v_in-v);
+u_d = u_C_d+2{dimensionless}*R_v*(v-v_out_1-v_out_2);-->
+            <!-- ODE-->
             <apply>
                 <eq/>
                 <ci>u</ci>
                 <ci>u_C</ci>
             </apply>
-            <!--+2{dimensionless}*R_v*(v_in-v);-->
             <apply>
                 <eq/>
                 <ci>u_d</ci>
                 <ci>u_C_d</ci>
             </apply>
         </math>
-        <!--+2{dimensionless}*R_v*(v-v_out_1-v_out_2);-->
     </component>
     <component name="zero_flow">
         <variable name="v_zero" public_interface="out" units="m3_per_s"/>
