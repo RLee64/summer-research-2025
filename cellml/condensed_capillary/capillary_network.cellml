@@ -339,6 +339,11 @@
                                     <ci>u_pericyte_0</ci>
                                     <ci>R_pericyte_0</ci>
                                 </apply>
+                                <apply>
+                                    <divide/>
+                                    <ci>u_pericyte_1</ci>
+                                    <ci>R_pericyte_1</ci>
+                                </apply>
                             </apply>
                         </apply>
                     </apply>
@@ -346,14 +351,22 @@
                         <plus/>
                         <cn cellml:units="dimensionless">1</cn>
                         <apply>
-                            <divide/>
+                            <times/>
+                            <cn cellml:units="dimensionless">2</cn>
+                            <ci>R_v_input_vessel</ci>
                             <apply>
-                                <times/>
-                                <cn cellml:units="dimensionless">2</cn>
-                                <ci>R_v_input_vessel</ci>
-                                <cn cellml:units="dimensionless">1</cn>
+                                <plus/>
+                                <apply>
+                                    <divide/>
+                                    <cn cellml:units="dimensionless">1</cn>
+                                    <ci>R_pericyte_0</ci>
+                                </apply>
+                                <apply>
+                                    <divide/>
+                                    <cn cellml:units="dimensionless">1</cn>
+                                    <ci>R_pericyte_1</ci>
+                                </apply>
                             </apply>
-                            <ci>R_pericyte_0</ci>
                         </apply>
                     </apply>
                 </apply>
