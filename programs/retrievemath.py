@@ -3,8 +3,8 @@ from pathlib import Path
 
 cwd = Path.cwd()
 
-model_path = cwd.parent / "cellml/condensed_capillary"
-model_file_name = "capillary_network.cellml"
+model_path = cwd.parent / "cellml/testing"
+model_file_name = "variable_on_rhs.cellml"
 
 def log_issues(libcellobj):
     print(f'{libcellobj.issueCount()} issue/s found for {libcellobj.__class__}')

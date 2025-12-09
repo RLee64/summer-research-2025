@@ -3,8 +3,8 @@ from pathlib import Path
 
 cwd = Path.cwd()
 
-model_path = cwd.parent / "cellml/condensed_capillary"
-model_file_name = "capillary_network.cellml"
+model_path = cwd.parent / "cellml/simple_capillary"
+model_file_name = "simple_capillary_causal1.cellml"
 output_file_path = cwd.parent / "output/"
 output_file_name = "output.py"
 
@@ -31,16 +31,14 @@ def main():
     print("Analysing model...")
     analyser = Analyser()
     analyser.analyseModel(model)
-    analysed_model = analyser.model()
+    analysed_model = analyser.analyserModel()
     log_issues(analyser)
     print(f'Model Type: {AnalyserModel.typeAsString(analysed_model.type())}')
 
     print("Generating Python code...")
     generator = Generator()
     generator_profile = GeneratorProfile(GeneratorProfile.Profile.PYTHON)
-    generator.setProfile(generator_profile)
-    generator.setModel(analysed_model)
-    code = generator.implementationCode()
+    code = generator.implementationCode(analysed_model, generator_profile)
     write_file = open(output_file_path / output_file_name, "w")
     write_file.write(code)
     print(f'{model_file_name} has been written to {output_file_path / output_file_name}')

@@ -31,7 +31,7 @@ def main():
     print("Analysing model...")
     analyser = Analyser()
     analyser.analyseModel(model)
-    analysed_model = analyser.model()
+    analysed_model = analyser.analyserModel()
     log_issues(analyser)
     print(f'Model Type: {AnalyserModel.typeAsString(analysed_model.type())}')
 

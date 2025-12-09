@@ -3,21 +3,47 @@
     <component name="Capillary">
         <!-- Variables-->
         <variable name="t" units="dimensionless"/>
-        <variable name="v_y" units="dimensionless"/>
-        <variable name="v_z" units="dimensionless"/>
-        <variable initial_value="2.0" name="q" units="dimensionless"/>
-        <variable initial_value="5.0" name="v_in" units="dimensionless"/>
-        <variable initial_value="10.0" name="P_out" units="dimensionless"/>
+        <variable initial_value="10.0" name="v_y" units="dimensionless"/>
+        <variable initial_value="10.0" name="v_z" units="dimensionless"/>
         <variable name="P_C" units="dimensionless"/>
-        <variable name="P_R_v" units="dimensionless"/>
-        <variable name="P_R" units="dimensionless"/>
-        <variable name="P_x" units="dimensionless"/>
+        <variable initial_value="10.0" name="P_R_v" units="dimensionless"/>
+        <variable initial_value="10.0" name="P_R" units="dimensionless"/>
+        <variable initial_value="10.0" name="P_x" units="dimensionless"/>
+        <!-- We know-->
+        <variable name="v_in" units="dimensionless"/>
+        <variable name="P_out" units="dimensionless"/>
+        <variable initial_value="2.0" name="q" units="dimensionless"/>
         <!-- Constants-->
-        <variable initial_value="10.0" name="R" units="dimensionless"/>
-        <variable initial_value="10.0" name="R_v" units="dimensionless"/>
-        <variable initial_value="10.0" name="C" units="dimensionless"/>
-        <!-- Equations-->
+        <variable name="R" units="dimensionless"/>
+        <variable name="R_v" units="dimensionless"/>
+        <variable name="C" units="dimensionless"/>
         <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>R</ci>
+                <cn cellml:units="dimensionless">10</cn>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>R_v</ci>
+                <cn cellml:units="dimensionless">10</cn>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>C</ci>
+                <cn cellml:units="dimensionless">10</cn>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>v_in</ci>
+                <cn cellml:units="dimensionless">10</cn>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>P_out</ci>
+                <cn cellml:units="dimensionless">10</cn>
+            </apply>
+            <!-- Equations-->
             <apply>
                 <eq/>
                 <ci>v_z</ci>

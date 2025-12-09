@@ -39,7 +39,7 @@ void logIssues(std::shared_ptr<libcellml::Logger> logger)
 int main()
 {
     std::string cellmlPath = "../../../cellml/";
-    std::string inputFile = "simple_capillary/simple_capillary.cellml";
+    std::string inputFile = "testing/variable_on_rhs.cellml";
     std::string outputPath = "../../../output/";
     std::string outputFile = "output.cellml";
 
