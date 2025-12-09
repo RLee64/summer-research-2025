@@ -2,17 +2,31 @@
 <model name="SimpleCapillary" xmlns="http://www.cellml.org/cellml/1.1#" xmlns:cellml="http://www.cellml.org/cellml/1.1#">
     <component name="Capillary">
         <!-- Variables-->
-        <variable name="t" units="dimensionless"/>
         <variable initial_value="10.0" name="v_y" units="dimensionless"/>
         <variable initial_value="10.0" name="v_z" units="dimensionless"/>
         <variable name="P_C" units="dimensionless"/>
         <variable initial_value="10.0" name="P_R_v" units="dimensionless"/>
         <variable initial_value="10.0" name="P_R" units="dimensionless"/>
         <variable initial_value="10.0" name="P_x" units="dimensionless"/>
-        <!-- We know-->
+        <!-- State Variable-->
+        <variable initial_value="2.0" name="q" units="dimensionless"/>
+        <!-- VOI-->
+        <variable name="t" units="dimensionless"/>
+        <!-- Input Parameters-->
         <variable name="v_in" units="dimensionless"/>
         <variable name="P_out" units="dimensionless"/>
-        <variable initial_value="2.0" name="q" units="dimensionless"/>
+        <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <apply>
+                <eq/>
+                <ci>v_in</ci>
+                <cn cellml:units="dimensionless">10</cn>
+            </apply>
+            <apply>
+                <eq/>
+                <ci>P_out</ci>
+                <cn cellml:units="dimensionless">10</cn>
+            </apply>
+        </math>
         <!-- Constants-->
         <variable name="R" units="dimensionless"/>
         <variable name="R_v" units="dimensionless"/>
@@ -31,16 +45,6 @@
             <apply>
                 <eq/>
                 <ci>C</ci>
-                <cn cellml:units="dimensionless">10</cn>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>v_in</ci>
-                <cn cellml:units="dimensionless">10</cn>
-            </apply>
-            <apply>
-                <eq/>
-                <ci>P_out</ci>
                 <cn cellml:units="dimensionless">10</cn>
             </apply>
             <!-- Equations-->
