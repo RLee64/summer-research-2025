@@ -6,3 +6,9 @@ find_package(libCellML REQUIRED)
 
 add_executable(simpleProcessing simpleProcessing.cpp)
 target_link_libraries(simpleProcessing PUBLIC cellml)
+
+add_executable(symtest symtest.cpp)
+target_link_libraries(symtest PUBLIC "C:/symengine/lib/symengine.lib")
+target_include_directories(symtest PUBLIC "C:/symengine/include")
+target_link_libraries(symtest PUBLIC "C:/gmp/lib/gmp.lib")
+target_include_directories(symtest PUBLIC "C:/gmp/include")
