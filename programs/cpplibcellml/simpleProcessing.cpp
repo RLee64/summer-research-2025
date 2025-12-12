@@ -16,6 +16,8 @@
 
 #include <libcellml>
 
+using namespace libcellml;
+
 void logIssues(std::shared_ptr<libcellml::Logger> logger)
 {
     int errorCount = logger->errorCount();
@@ -36,12 +38,36 @@ void logIssues(std::shared_ptr<libcellml::Logger> logger)
     }
 }
 
+void printAst(AnalyserEquationAstPtr &ast, std::string prepend) {
+    if (ast == nullptr) {
+        return;
+    }
+    
+    std::cout << "- " << prepend;
+    std::cout << "Type - " << ast->typeAsString(ast->type());
+    auto var = ast->variable();
+    if (var != nullptr) {
+        std::cout << ", Name - " << var->name();
+    }
+    auto value = ast->value();
+    if (!value.empty()) {
+        std::cout << ", Name - " << value;
+    }
+    std::cout << std:: endl;
+
+    printAst(ast->leftChild(), prepend + "  ");
+    printAst(ast->rightChild(), prepend + "  ");
+}
+    
 int main()
 {
+
     std::string cellmlPath = "../../../cellml/";
-    std::string inputFile = "testing/variable_on_rhs.cellml";
+    std::string inputFile = "testing/simple_rearrangement.cellml";
+    // std::string cellmlPath = "../../../output/";
+    // std::string inputFile = "unarranged_algebraic_equation.cellml";
     std::string outputPath = "../../../output/";
-    std::string outputFile = "output.cellml";
+    std::string outputFile = "rlycoolpython.py";
 
     std::string fullInputPath = cellmlPath + inputFile;
     std::string fullOutputPath = outputPath + outputFile;
@@ -52,8 +78,8 @@ int main()
     inFileContents << inFile.rdbuf();
 
     std::cout << "Parsing CellML file..." << std::endl;
-    libcellml::ParserPtr parser = libcellml::Parser::create(false);
-    libcellml::ModelPtr model = parser->parseModel(inFileContents.str());
+    ParserPtr parser = Parser::create(false);
+    ModelPtr model = parser->parseModel(inFileContents.str());
     logIssues(parser);
 
     if (model == nullptr)
@@ -63,25 +89,79 @@ int main()
     }
 
     std::cout << "Validating model..." << std::endl;
-    libcellml::ValidatorPtr validator = libcellml::Validator::create();
+    ValidatorPtr validator = Validator::create();
     validator->validateModel(model);
     logIssues(validator);
 
     std::cout << "Analysing model..." << std::endl;
-    libcellml::AnalyserPtr analyser = libcellml::Analyser::create();
+    AnalyserPtr analyser = Analyser::create();
     analyser->analyseModel(model);
-    libcellml::AnalyserModelPtr analysedModel = analyser->analyserModel();
-    logIssues(analyser);
-    std::string modelType = libcellml::AnalyserModel::typeAsString(analysedModel->type());
-    std::cout << "Model Type: " << modelType << std::endl;
+    AnalyserModelPtr analysedModel = analyser->analyserModel();
 
-    std::cout << "Outputing CellML file..." << std::endl;
-    libcellml::PrinterPtr printer = libcellml::Printer::create();
-    std::string serialisedModel = printer->printModel(model);
+    logIssues(analyser);
+    std::string modelType = AnalyserModel::typeAsString(analysedModel->type());
+    std::cout << "Model Type: " << modelType << std::endl;
+    std::cout << "Algebraic Variables " << analysedModel->algebraicVariableCount() << std::endl;
+    for (size_t i = 0; i < analysedModel->algebraicVariableCount(); ++i)
+    {
+        AnalyserVariablePtr var = analysedModel->algebraicVariable(i);
+        std::cout << " - " << var->variable()->name() << std::endl;
+    }
+    std::cout << "States " << analysedModel->stateCount() << std::endl;
+    for (size_t i = 0; i < analysedModel->stateCount(); ++i)
+    {
+        AnalyserVariablePtr var = analysedModel->state(i);
+        std::cout << " - " << var->variable()->name() << std::endl;
+    }
+    std::cout << "Computer Constants " << analysedModel->computedConstantCount() << std::endl;
+    for (size_t i = 0; i < analysedModel->computedConstantCount(); ++i)
+    {
+        AnalyserVariablePtr var = analysedModel->computedConstant(i);
+        std::cout << " - " << var->variable()->name() << std::endl;
+    }
+    std::cout << "Constants " << analysedModel->constantCount() << std::endl;
+    for (size_t i = 0; i < analysedModel->constantCount(); ++i)
+    {
+        AnalyserVariablePtr var = analysedModel->constant(i);
+        std::cout << " - " << var->variable()->name() << std::endl;
+    }
+    std::cout << "External vars " << analysedModel->externalVariableCount() << std::endl;
+
+    std::cout << "Equations " << analysedModel->analyserEquationCount() << std::endl;
+    for (size_t i = 0; i < analysedModel->analyserEquationCount(); ++i)
+    {
+        AnalyserEquationPtr eq = analysedModel->analyserEquation(i);
+        std::cout << "EQUATION - " << eq->typeAsString(eq->type()) << std::endl;
+        printAst(eq->ast(), "");
+    }
+
+    // std::cout << "Outputing CellML file..." << std::endl;
+    // libcellml::PrinterPtr printer = libcellml::Printer::create();
+    // std::string serialisedModel = printer->printModel(model);
+    // std::ofstream outFile(fullOutputPath);
+    // outFile << serialisedModel;
+    // outFile.close();
+    // std::cout << inputFile << " has been written to: " << fullOutputPath << std::endl;
+
+    std::cout << "Generating Python code..." << std::endl;
+    GeneratorPtr generator = Generator::create();
+    if (generator == nullptr)
+    {
+        return 1;
+    }
+    auto generatorProfile = GeneratorProfile::create(GeneratorProfile::Profile::PYTHON);
+    if (generatorProfile == nullptr)
+    {
+        std::cout << "bricks" << std::endl;
+    }
+
+    auto code = generator->implementationCode(analysedModel, generatorProfile);
     std::ofstream outFile(fullOutputPath);
-    outFile << serialisedModel;
+    outFile << code;
     outFile.close();
-    std::cout << inputFile << " has been written to: " << fullOutputPath << std::endl;
+    std::cout << "Code has been written to: " << fullOutputPath << std::endl;
 
     return 0;
 }
+
+
