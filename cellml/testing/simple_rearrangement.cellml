@@ -18,11 +18,7 @@
             <apply>
                 <eq/>
                 <ci>x</ci>
-                <apply>
-                    <plus/>
-                    <ci>y</ci>
-                    <ci>z</ci>
-                </apply>
+                <exponentiale/>
             </apply>
         </math>
     </component>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cellml.org/cellml/2.0#" name="UnarrangedRelationalEquations">
+  <component name="Component">
+    <!-- Precomputed constants -->
+    <variable name="w" units="dimensionless"/>
+    <variable name="x" units="dimensionless"/>
+    <variable name="y" units="dimensionless"/>
+    <variable name="z" units="dimensionless"/>
+
+    <!-- Unknowns to solve -->
+    <variable name="a" units="dimensionless"/>
+    <variable name="b" units="dimensionless"/>
+    <variable name="c" units="dimensionless"/>
+    <variable name="d" units="dimensionless"/>
+    <variable name="e" units="dimensionless"/>
+    <variable name="f" units="dimensionless"/>
+
+    <math xmlns="http://www.w3.org/1998/Math/MathML"
+          xmlns:cellml="http://www.cellml.org/cellml/2.0#">
+
+      <!-- Initialise constants -->
+      <apply><eq/><ci>w</ci><cn cellml:units="dimensionless"><true/></cn></apply>
+      <apply><eq/><ci>x</ci><cn cellml:units="dimensionless"><false/></cn></apply>
+      <apply><eq/><ci>y</ci><cn cellml:units="dimensionless"><true/></cn></apply>
+      <apply><eq/><ci>z</ci><cn cellml:units="dimensionless"><false/></cn></apply>
+
+      <!-- Equation 1: a & x = w -->
+      <!-- Test equation for AND -->
+      <apply>
+        <eq/>
+        <apply><and/><ci>a</ci><ci>x</ci></apply>
+        <ci>w</ci>
+      </apply>
+
+      <!-- Equation 2: b | x = z -->
+      <!-- Test equation for OR -->
+      <apply>
+        <eq/>
+        <apply><or/><ci>b</ci><ci>x</ci></apply>
+        <ci>z</ci>
+      </apply>
+
+      <!-- Equation 3: c xor w = y -->
+      <!-- Test equation for XOR -->
+      <apply>
+        <eq/>
+        <apply><xor/><ci>c</ci><ci>w</ci></apply>
+        <ci>y</ci>
+      </apply>
+
+      <!-- Equation 4: !d = y -->
+      <!-- Test equation for not -->
+      <apply>
+        <eq/>
+        <apply><not/><ci>d</ci></apply>
+        <ci>y</ci>
+      </apply>
+
+      <!-- Equation 5: e == x = w -->
+      <!-- Test equation for equality -->
+      <apply>
+        <eq/>
+        <apply><eq/><ci>e</ci><ci>x</ci></apply>
+        <ci>w</ci>
+      </apply>
+
+      <!-- Equation 6: f != x = z -->
+      <!-- Test equation for inequality -->
+      <apply>
+        <eq/>
+        <apply><neq/><ci>f</ci><ci>x</ci></apply>
+        <ci>z</ci>
+      </apply>
+
+    </math>
+  </component>
+</model>

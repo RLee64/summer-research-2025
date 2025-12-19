@@ -3,8 +3,8 @@ from pathlib import Path
 
 cwd = Path.cwd()
 
-model_path = cwd.parent / "cellml/simple_capillary"
-model_file_name = "simple_capillary_causal1.cellml"
+model_path = cwd.parent / "cellml/testing"
+model_file_name = "simple_rearrangement.cellml"
 output_file_path = cwd.parent / "output/"
 output_file_name = "output.py"
 

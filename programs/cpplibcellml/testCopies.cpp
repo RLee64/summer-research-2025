@@ -38,19 +38,23 @@ void logIssues(std::shared_ptr<libcellml::Logger> logger)
     }
 }
 
-void printAst(AnalyserEquationAstPtr &ast, std::string prepend) {
-    if (ast == nullptr) {
+void printAst(AnalyserEquationAstPtr &ast, std::string prepend)
+{
+    if (ast == nullptr)
+    {
         return;
     }
-    
+
     std::cout << "- " << prepend;
     std::cout << "Type - " << ast->typeAsString(ast->type());
     auto var = ast->variable();
-    if (var != nullptr) {
+    if (var != nullptr)
+    {
         std::cout << ", Variable - " << var->name();
     }
     auto value = ast->value();
-    if (!value.empty()) {
+    if (!value.empty())
+    {
         std::cout << ", Value - " << value;
     }
     std::cout << std::endl;
@@ -58,19 +62,19 @@ void printAst(AnalyserEquationAstPtr &ast, std::string prepend) {
     printAst(ast->leftChild(), prepend + "  ");
     printAst(ast->rightChild(), prepend + "  ");
 }
-    
+
 int main()
 {
 
-    std::string cellmlPath = "../../../cellml/";
-    //std::string inputFile = "libcellml/model.not.ordered.cellml";
-    std::string inputFile = "test_cases/unrearrangeable.cellml";
+    std::string libcellmlPath = "../../../cellml/libcellml";
+    // std::string inputFile = "libcellml/model.not.ordered.cellml";
+    std::string inputFile = "/sine_approximations_import.xml";
     // std::string cellmlPath = "../../../output/";
     // std::string inputFile = "unarranged_algebraic_equation.cellml";
     std::string outputPath = "../../../output/";
     std::string outputFile = "rlycoolpython.py";
 
-    std::string fullInputPath = cellmlPath + inputFile;
+    std::string fullInputPath = libcellmlPath + inputFile;
     std::string fullOutputPath = outputPath + outputFile;
 
     std::cout << "Opening CellML file..." << std::endl;
@@ -88,6 +92,12 @@ int main()
         std::cout << "Unable to parse model";
         return 1;
     }
+
+    auto importer = libcellml::Importer::create();
+    importer->resolveImports(model, libcellmlPath);
+    model = importer->flattenModel(model);
+
+    logIssues(importer);
 
     std::cout << "Validating model..." << std::endl;
     ValidatorPtr validator = Validator::create();
@@ -164,5 +174,3 @@ int main()
 
     return 0;
 }
-
-

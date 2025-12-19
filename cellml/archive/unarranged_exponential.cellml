@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model xmlns="http://www.cellml.org/cellml/2.0#" name="UnarrangedExponentialEquations">
+  <component name="Component">
+
+    <!-- Precomputed constants -->
+    <variable name="w" units="dimensionless"/>
+
+    <!-- Unknowns to solve -->
+    <variable name="a" units="dimensionless"/>
+    <variable name="b" units="dimensionless"/>
+    <variable name="c" units="dimensionless"/>
+    <variable name="d" units="dimensionless"/>
+
+    <math xmlns="http://www.w3.org/1998/Math/MathML"
+          xmlns:cellml="http://www.cellml.org/cellml/2.0#">
+
+      <!-- a - exp(w) = 200 -->
+      <!-- Test equation for exponentiated variable -->
+      <apply>
+        <eq/>
+        <apply><minus/><ci>a</ci><apply><exp/><ci>w</ci></apply></apply>
+        <cn cellml:units="dimensionless">200</cn>
+      </apply>
+
+
+      <!-- b + exp(200) = w -->
+      <!-- Test equation for exponentiated constant -->
+      <apply>
+        <eq/>
+        <apply><plus/><ci>b</ci><apply><exp/><cn cellml:units="dimensionless">200</cn></apply></apply>
+        <ci>w</ci>
+      </apply>
+
+      <!-- Initialise constants -->
+      <apply><eq/><ci>w</ci><cn cellml:units="dimensionless">2</cn></apply>
+      
+    </math>
+  </component>
+</model>
